@@ -9,6 +9,14 @@ public interface StopChargingSessionUseCase {
 
     record StopChargingSessionResult(Status status, Cost cost) {
 
+        static StopChargingSessionResult success(Cost cost) {
+            return new StopChargingSessionResult(Status.SUCCESS, cost);
+        }
+
+        static StopChargingSessionResult noActiveChargingSession() {
+            return new StopChargingSessionResult(Status.NO_ACTIVE_CHARGING_SESSION, null);
+        }
+
         enum Status {
             SUCCESS, NO_ACTIVE_CHARGING_SESSION
         }

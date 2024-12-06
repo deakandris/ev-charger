@@ -4,10 +4,18 @@ public interface StartChargingSessionUseCase {
 
     StartChargingSessionResult startChargingSession(StartChargingSessionCommand command);
 
-    record StartChargingSessionCommand(double chargerId) {
+    record StartChargingSessionCommand(long chargerId) {
     }
 
-    record StartChargingSessionResult(Status status) {
+    record StartChargingSessionResult(Status status, Long sessionId) {
+
+        static StartChargingSessionResult success(long sessionId) {
+            return new StartChargingSessionResult(Status.SUCCESS, sessionId);
+        }
+
+        static StartChargingSessionResult notAvailable() {
+            return new StartChargingSessionResult(Status.NOT_AVAILABLE, null);
+        }
 
         enum Status {
             SUCCESS, NOT_AVAILABLE
