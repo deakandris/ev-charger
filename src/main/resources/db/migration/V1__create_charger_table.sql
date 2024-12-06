@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS charger (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    longitude NUMERIC NOT NULL,
+    latitude NUMERIC NOT NULL,
+    status TEXT NOT NULL,
+)

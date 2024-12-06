@@ -25,7 +25,7 @@ public class ChargerService implements GetNearbyChargersUseCase { // TODO implem
         var charger = repository.findById(chargerId)
                 .orElseThrow(() -> new ChargerNotFoundException(chargerId));
         if (charger.status() == Charger.Status.AVAILABLE) {
-            repository.updateStatus(Charger.Status.OCCUPIED);
+            repository.updateStatus(chargerId, Charger.Status.OCCUPIED);
             return true;
         } else {
             return false;

@@ -1,11 +1,8 @@
 package deakandris.evcharger.domain;
 
-import org.springframework.stereotype.Repository;
-
 import java.time.Instant;
 import java.util.List;
 
-@Repository
 public interface ChargingSessionRepository {
 
     List<ChargingSession> findAll();
